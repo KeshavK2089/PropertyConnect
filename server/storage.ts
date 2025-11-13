@@ -477,6 +477,9 @@ export class MemStorage implements IStorage {
         id,
         bedrooms: prop.bedrooms ?? null,
         bathrooms: prop.bathrooms ?? null,
+        status: prop.status ?? "available",
+        city: prop.city ?? "Cheyyar",
+        state: prop.state ?? "TN",
         dateListed: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000),
         views: Math.floor(Math.random() * 200),
       };
@@ -577,6 +580,9 @@ export class MemStorage implements IStorage {
       id,
       bedrooms: insertProperty.bedrooms ?? null,
       bathrooms: insertProperty.bathrooms ?? null,
+      status: insertProperty.status ?? "available",
+      city: insertProperty.city ?? "Cheyyar",
+      state: insertProperty.state ?? "TN",
       dateListed: new Date(),
       views: 0,
     };
