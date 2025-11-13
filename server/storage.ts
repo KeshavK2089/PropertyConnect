@@ -475,6 +475,8 @@ export class MemStorage implements IStorage {
       const property: Property = {
         ...prop,
         id,
+        bedrooms: prop.bedrooms ?? null,
+        bathrooms: prop.bathrooms ?? null,
         dateListed: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000),
         views: Math.floor(Math.random() * 200),
       };
@@ -573,6 +575,8 @@ export class MemStorage implements IStorage {
     const property: Property = {
       ...insertProperty,
       id,
+      bedrooms: insertProperty.bedrooms ?? null,
+      bathrooms: insertProperty.bathrooms ?? null,
       dateListed: new Date(),
       views: 0,
     };
