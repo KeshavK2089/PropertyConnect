@@ -103,8 +103,8 @@ export default function Contact() {
                 Browse our complete listings of land plots, rental spaces, and retail properties. 
                 When you find something you like, use the contact information on the property page to reach the owner directly.
               </p>
-              <Button asChild data-testid="button-browse-properties">
-                <a href="/properties">Browse All Properties</a>
+              <Button asChild data-testid="button-browse-listings">
+                <a href="/listings">Browse All Properties</a>
               </Button>
             </CardContent>
           </Card>
