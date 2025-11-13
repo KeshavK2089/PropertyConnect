@@ -1,27 +1,18 @@
-import { useQuery, useMutation } from "@tanstack/react-query";
-import { Property, InsertContact, insertContactSchema } from "@shared/schema";
+import { useQuery } from "@tanstack/react-query";
+import { Property } from "@shared/schema";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { PropertyMap } from "@/components/property-map";
 import { PropertyCard } from "@/components/property-card";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { apiRequest, queryClient } from "@/lib/queryClient";
 import {
   MapPin,
   Bed,
   Bath,
   Maximize2,
   Calendar,
-  Phone,
-  Mail,
   Share2,
   Heart,
   ArrowLeft,
@@ -34,7 +25,6 @@ export default function PropertyDetail() {
   const { toast } = useToast();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isFavorite, setIsFavorite] = useState(false);
-  const [contactDialogOpen, setContactDialogOpen] = useState(false);
 
   const { data: property, isLoading } = useQuery<Property>({
     queryKey: ["/api/properties", params?.id],
@@ -67,42 +57,6 @@ export default function PropertyDetail() {
       toast({ title: "Added to favorites" });
     }
     window.dispatchEvent(new Event("favoritesChanged"));
-  };
-
-  const contactMutation = useMutation({
-    mutationFn: async (data: InsertContact) => {
-      return await apiRequest("POST", "/api/contact", data);
-    },
-    onSuccess: () => {
-      toast({
-        title: "Message sent!",
-        description: "We'll get back to you soon.",
-      });
-      setContactDialogOpen(false);
-      form.reset();
-    },
-    onError: () => {
-      toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
-        variant: "destructive",
-      });
-    },
-  });
-
-  const form = useForm<InsertContact>({
-    resolver: zodResolver(insertContactSchema),
-    defaultValues: {
-      propertyId: params?.id,
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-    },
-  });
-
-  const onSubmit = (data: InsertContact) => {
-    contactMutation.mutate(data);
   };
 
   const similarProperties = property && allProperties
@@ -339,112 +293,6 @@ export default function PropertyDetail() {
                 <p className="text-sm text-muted-foreground mt-4">
                   {property.address}, {property.city}, {property.state}
                 </p>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="space-y-6">
-            <Card className="sticky top-24">
-              <CardHeader>
-                <CardTitle>Contact Agent</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <p className="font-semibold mb-1">{property.contactName}</p>
-                  <p className="text-sm text-muted-foreground mb-4">Property Agent</p>
-                </div>
-
-                <div className="space-y-3">
-                  <a href={`tel:${property.contactPhone}`}>
-                    <Button className="w-full gap-2" data-testid="button-call">
-                      <Phone className="h-4 w-4" />
-                      {property.contactPhone}
-                    </Button>
-                  </a>
-                  <a href={`mailto:${property.contactEmail}`}>
-                    <Button variant="outline" className="w-full gap-2" data-testid="button-email">
-                      <Mail className="h-4 w-4" />
-                      {property.contactEmail}
-                    </Button>
-                  </a>
-
-                  <Dialog open={contactDialogOpen} onOpenChange={setContactDialogOpen}>
-                    <DialogTrigger asChild>
-                      <Button variant="outline" className="w-full" data-testid="button-send-message">
-                        Send Message
-                      </Button>
-                    </DialogTrigger>
-                    <DialogContent>
-                      <DialogHeader>
-                        <DialogTitle>Send a Message</DialogTitle>
-                      </DialogHeader>
-                      <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                          <FormField
-                            control={form.control}
-                            name="name"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>Name</FormLabel>
-                                <FormControl>
-                                  <Input {...field} data-testid="input-contact-name" />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          <FormField
-                            control={form.control}
-                            name="email"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>Email</FormLabel>
-                                <FormControl>
-                                  <Input type="email" {...field} data-testid="input-contact-email" />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          <FormField
-                            control={form.control}
-                            name="phone"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>Phone</FormLabel>
-                                <FormControl>
-                                  <Input {...field} data-testid="input-contact-phone" />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          <FormField
-                            control={form.control}
-                            name="message"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>Message</FormLabel>
-                                <FormControl>
-                                  <Textarea {...field} rows={4} data-testid="textarea-contact-message" />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          <Button
-                            type="submit"
-                            className="w-full"
-                            disabled={contactMutation.isPending}
-                            data-testid="button-submit-contact"
-                          >
-                            {contactMutation.isPending ? "Sending..." : "Send Message"}
-                          </Button>
-                        </form>
-                      </Form>
-                    </DialogContent>
-                  </Dialog>
-                </div>
               </CardContent>
             </Card>
           </div>

@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { PropertyCard } from "@/components/property-card";
-import { Search, TrendingUp, Building2, Home as HomeIcon, Store, MapPin, Phone, Mail } from "lucide-react";
+import { Search, TrendingUp, Building2, Home as HomeIcon, Store, MapPin } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { useState } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
@@ -293,19 +293,13 @@ export default function Home() {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Find Your Property?</h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Get in touch with us today and let us help you find the perfect space
+              Browse our collection of quality properties in Cheyyar
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/contact">
-                <Button size="lg" className="gap-2" data-testid="button-contact-cta">
-                  <Mail className="h-5 w-5" />
-                  Contact Us
-                </Button>
-              </Link>
               <Link href="/listings">
-                <Button size="lg" variant="outline" className="gap-2">
+                <Button size="lg" className="gap-2">
                   <Search className="h-5 w-5" />
-                  Browse Properties
+                  Browse All Properties
                 </Button>
               </Link>
             </div>

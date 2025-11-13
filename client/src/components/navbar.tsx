@@ -50,9 +50,6 @@ export function Navbar() {
             <Link href="/about">
               <Button variant="ghost" data-testid="nav-about">About</Button>
             </Link>
-            <Link href="/contact">
-              <Button variant="default" data-testid="nav-contact">Contact Us</Button>
-            </Link>
           </div>
 
           <Button
@@ -91,15 +88,6 @@ export function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 About
-              </Button>
-            </Link>
-            <Link href="/contact">
-              <Button
-                variant="default"
-                className="w-full justify-start"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Contact Us
               </Button>
             </Link>
           </div>

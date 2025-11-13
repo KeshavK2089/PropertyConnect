@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertContactSchema, propertyFilterSchema, type PropertyFilter } from "@shared/schema";
+import { propertyFilterSchema, type PropertyFilter } from "@shared/schema";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Get all properties with optional filtering
@@ -57,21 +57,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.json(property);
     } catch (error) {
       res.status(500).json({ error: "Failed to fetch property" });
-    }
-  });
-
-  // Create contact/inquiry
-  app.post("/api/contact", async (req, res) => {
-    try {
-      const validatedData = insertContactSchema.parse(req.body);
-      const contact = await storage.createContact(validatedData);
-      res.status(201).json(contact);
-    } catch (error) {
-      if (error && typeof error === "object" && "issues" in error) {
-        return res.status(400).json({ error: "Invalid contact data", details: error });
-      }
-      console.error("Contact creation error:", error);
-      res.status(500).json({ error: "Failed to create contact" });
     }
   });
 

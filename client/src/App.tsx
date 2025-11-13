@@ -10,7 +10,6 @@ import Listings from "@/pages/listings";
 import PropertyDetail from "@/pages/property-detail";
 import Favorites from "@/pages/favorites";
 import MapView from "@/pages/map-view";
-import Contact from "@/pages/contact";
 import About from "@/pages/about";
 import FAQ from "@/pages/faq";
 import Terms from "@/pages/terms";
@@ -25,7 +24,6 @@ function Router() {
       <Route path="/property/:id" component={PropertyDetail} />
       <Route path="/favorites" component={Favorites} />
       <Route path="/map" component={MapView} />
-      <Route path="/contact" component={Contact} />
       <Route path="/about" component={About} />
       <Route path="/faq" component={FAQ} />
       <Route path="/terms" component={Terms} />

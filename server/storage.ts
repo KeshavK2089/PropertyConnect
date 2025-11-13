@@ -1,4 +1,4 @@
-import { type Property, type InsertProperty, type Contact, type InsertContact, type PropertyFilter } from "@shared/schema";
+import { type Property, type InsertProperty, type PropertyFilter } from "@shared/schema";
 import { randomUUID } from "crypto";
 
 export interface IStorage {
@@ -7,19 +7,13 @@ export interface IStorage {
   getProperty(id: string): Promise<Property | undefined>;
   createProperty(property: InsertProperty): Promise<Property>;
   incrementPropertyViews(id: string): Promise<void>;
-
-  // Contact methods
-  createContact(contact: InsertContact): Promise<Contact>;
-  getContacts(): Promise<Contact[]>;
 }
 
 export class MemStorage implements IStorage {
   private properties: Map<string, Property>;
-  private contacts: Map<string, Contact>;
 
   constructor() {
     this.properties = new Map();
-    this.contacts = new Map();
     this.initializeSampleData();
   }
 
@@ -47,9 +41,6 @@ export class MemStorage implements IStorage {
         ],
         features: ["Fertile Soil", "Water Access", "Road Frontage", "Clear Title", "Fenced"],
         status: "available",
-        contactName: "Rajesh Kumar",
-        contactPhone: "+91 98765 43210",
-        contactEmail: "rajesh.kumar@example.com",
       },
       {
         type: "land",
@@ -72,9 +63,6 @@ export class MemStorage implements IStorage {
         ],
         features: ["Electricity Available", "Water Connection", "Wide Road", "Residential Zone", "DTCP Approved"],
         status: "available",
-        contactName: "Meena Devi",
-        contactPhone: "+91 99876 54321",
-        contactEmail: "meena.devi@example.com",
       },
       {
         type: "land",
@@ -97,9 +85,6 @@ export class MemStorage implements IStorage {
         ],
         features: ["Bore Well", "Power Connection", "Red Soil", "Peaceful Location", "Good Drainage"],
         status: "available",
-        contactName: "Subramaniam",
-        contactPhone: "+91 97654 32109",
-        contactEmail: "subbu.farms@example.com",
       },
       {
         type: "land",
@@ -122,9 +107,6 @@ export class MemStorage implements IStorage {
         ],
         features: ["Corner Plot", "Main Road Access", "All Amenities Nearby", "Commercial Potential", "Level Ground"],
         status: "available",
-        contactName: "Lakshmi Narayanan",
-        contactPhone: "+91 96543 21098",
-        contactEmail: "lakshmi.n@example.com",
       },
       {
         type: "land",
@@ -147,9 +129,6 @@ export class MemStorage implements IStorage {
         ],
         features: ["Coconut Plantation", "Farm House", "Storage Shed", "Canal Water", "Income Generating"],
         status: "available",
-        contactName: "Venkatesh",
-        contactPhone: "+91 95432 10987",
-        contactEmail: "venkat.farms@example.com",
       },
 
       // Rental Properties
@@ -176,9 +155,6 @@ export class MemStorage implements IStorage {
         bedrooms: 2,
         bathrooms: 2,
         status: "available",
-        contactName: "Priya Sharma",
-        contactPhone: "+91 94321 09876",
-        contactEmail: "priya.sharma@example.com",
       },
       {
         type: "rental",
@@ -203,9 +179,6 @@ export class MemStorage implements IStorage {
         bedrooms: 3,
         bathrooms: 2,
         status: "available",
-        contactName: "Arun Patel",
-        contactPhone: "+91 93210 98765",
-        contactEmail: "arun.patel@example.com",
       },
       {
         type: "rental",
@@ -230,9 +203,6 @@ export class MemStorage implements IStorage {
         bedrooms: 1,
         bathrooms: 1,
         status: "available",
-        contactName: "Deepa Krishnan",
-        contactPhone: "+91 92109 87654",
-        contactEmail: "deepa.k@example.com",
       },
       {
         type: "rental",
@@ -257,9 +227,6 @@ export class MemStorage implements IStorage {
         bedrooms: 4,
         bathrooms: 3,
         status: "available",
-        contactName: "Ramesh Iyer",
-        contactPhone: "+91 91098 76543",
-        contactEmail: "ramesh.iyer@example.com",
       },
       {
         type: "rental",
@@ -284,9 +251,6 @@ export class MemStorage implements IStorage {
         bedrooms: 1,
         bathrooms: 1,
         status: "available",
-        contactName: "Anita Desai",
-        contactPhone: "+91 90987 65432",
-        contactEmail: "anita.desai@example.com",
       },
       {
         type: "rental",
@@ -311,9 +275,6 @@ export class MemStorage implements IStorage {
         bedrooms: 3,
         bathrooms: 3,
         status: "available",
-        contactName: "Vikram Singh",
-        contactPhone: "+91 98876 54321",
-        contactEmail: "vikram.singh@example.com",
       },
 
       // Retail Spaces
@@ -338,9 +299,6 @@ export class MemStorage implements IStorage {
         ],
         features: ["Main Road Location", "Display Windows", "Parking Available", "High Traffic", "Modern Building"],
         status: "available",
-        contactName: "Sanjay Gupta",
-        contactPhone: "+91 97765 43210",
-        contactEmail: "sanjay.gupta@example.com",
       },
       {
         type: "retail",
@@ -363,9 +321,6 @@ export class MemStorage implements IStorage {
         ],
         features: ["3 Floors", "Elevator", "Parking Space", "Commercial Zone", "Investment Opportunity"],
         status: "available",
-        contactName: "Ashok Mehta",
-        contactPhone: "+91 96654 32109",
-        contactEmail: "ashok.mehta@example.com",
       },
       {
         type: "retail",
@@ -388,9 +343,6 @@ export class MemStorage implements IStorage {
         ],
         features: ["Shopping Complex", "Central AC", "Ready to Move", "Good Footfall", "Modern Amenities"],
         status: "available",
-        contactName: "Pooja Reddy",
-        contactPhone: "+91 95543 21098",
-        contactEmail: "pooja.reddy@example.com",
       },
       {
         type: "retail",
@@ -413,9 +365,6 @@ export class MemStorage implements IStorage {
         ],
         features: ["IT Ready", "Conference Room", "Pantry", "High Speed Internet", "Employee Parking"],
         status: "available",
-        contactName: "Karthik Raman",
-        contactPhone: "+91 94432 10987",
-        contactEmail: "karthik.raman@example.com",
       },
       {
         type: "retail",
@@ -438,9 +387,6 @@ export class MemStorage implements IStorage {
         ],
         features: ["Commercial Kitchen", "50 Seating", "Exhaust System", "Gas Connection", "Strategic Location"],
         status: "available",
-        contactName: "Muthu Krishnan",
-        contactPhone: "+91 93321 09876",
-        contactEmail: "muthu.k@example.com",
       },
       {
         type: "retail",
@@ -463,9 +409,6 @@ export class MemStorage implements IStorage {
         ],
         features: ["Consultation Rooms", "Laboratory Space", "Ramp Access", "Healthcare Hub", "Waiting Area"],
         status: "available",
-        contactName: "Dr. Sundar",
-        contactPhone: "+91 92210 98765",
-        contactEmail: "dr.sundar@example.com",
       },
       {
         type: "retail",
@@ -488,9 +431,6 @@ export class MemStorage implements IStorage {
         ],
         features: ["Shop + Residence", "Corner Location", "High Visibility", "Live-Work Space", "Town Center"],
         status: "available",
-        contactName: "Senthil Murugan",
-        contactPhone: "+91 91109 87654",
-        contactEmail: "senthil.m@example.com",
       },
     ];
 
@@ -610,21 +550,6 @@ export class MemStorage implements IStorage {
       property.views += 1;
       this.properties.set(id, property);
     }
-  }
-
-  async createContact(insertContact: InsertContact): Promise<Contact> {
-    const id = randomUUID();
-    const contact: Contact = {
-      ...insertContact,
-      id,
-      createdAt: new Date(),
-    };
-    this.contacts.set(id, contact);
-    return contact;
-  }
-
-  async getContacts(): Promise<Contact[]> {
-    return Array.from(this.contacts.values());
   }
 }
 

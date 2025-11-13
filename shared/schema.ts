@@ -24,9 +24,6 @@ export const properties = pgTable("properties", {
   bathrooms: integer("bathrooms"),
   status: varchar("status", { length: 20 }).notNull().default("available"), // "available" | "pending" | "sold"
   dateListed: timestamp("date_listed").notNull().defaultNow(),
-  contactName: text("contact_name").notNull(),
-  contactPhone: text("contact_phone").notNull(),
-  contactEmail: text("contact_email").notNull(),
   views: integer("views").notNull().default(0),
 });
 
@@ -38,25 +35,6 @@ export const insertPropertySchema = createInsertSchema(properties).omit({
 
 export type InsertProperty = z.infer<typeof insertPropertySchema>;
 export type Property = typeof properties.$inferSelect;
-
-// Contact form schema
-export const contacts = pgTable("contacts", {
-  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  propertyId: varchar("property_id"),
-  name: text("name").notNull(),
-  email: text("email").notNull(),
-  phone: text("phone").notNull(),
-  message: text("message").notNull(),
-  createdAt: timestamp("created_at").notNull().defaultNow(),
-});
-
-export const insertContactSchema = createInsertSchema(contacts).omit({
-  id: true,
-  createdAt: true,
-});
-
-export type InsertContact = z.infer<typeof insertContactSchema>;
-export type Contact = typeof contacts.$inferSelect;
 
 // Filter and search types
 export const propertyFilterSchema = z.object({
