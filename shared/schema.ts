@@ -24,6 +24,8 @@ export const properties = pgTable("properties", {
   bathrooms: integer("bathrooms"),
   status: varchar("status", { length: 20 }).notNull().default("available"), // "available" | "pending" | "sold"
   dateListed: timestamp("date_listed").notNull().defaultNow(),
+  contactName: text("contact_name").notNull(),
+  contactPhone: text("contact_phone").notNull(),
   views: integer("views").notNull().default(0),
 });
 

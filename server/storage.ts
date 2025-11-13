@@ -41,6 +41,8 @@ export class MemStorage implements IStorage {
         ],
         features: ["Fertile Soil", "Water Access", "Road Frontage", "Clear Title", "Fenced"],
         status: "available",
+        contactName: "Rajesh Kumar",
+        contactPhone: "+91 98765 43210",
       },
       {
         type: "land",
@@ -63,6 +65,8 @@ export class MemStorage implements IStorage {
         ],
         features: ["Electricity Available", "Water Connection", "Wide Road", "Residential Zone", "DTCP Approved"],
         status: "available",
+        contactName: "Meena Devi",
+        contactPhone: "+91 99876 54321",
       },
       {
         type: "land",
@@ -85,6 +89,8 @@ export class MemStorage implements IStorage {
         ],
         features: ["Bore Well", "Power Connection", "Red Soil", "Peaceful Location", "Good Drainage"],
         status: "available",
+        contactName: "Subramaniam",
+        contactPhone: "+91 97654 32109",
       },
       {
         type: "land",
@@ -107,6 +113,8 @@ export class MemStorage implements IStorage {
         ],
         features: ["Corner Plot", "Main Road Access", "All Amenities Nearby", "Commercial Potential", "Level Ground"],
         status: "available",
+        contactName: "Lakshmi Narayanan",
+        contactPhone: "+91 96543 21098",
       },
       {
         type: "land",
@@ -129,6 +137,8 @@ export class MemStorage implements IStorage {
         ],
         features: ["Coconut Plantation", "Farm House", "Storage Shed", "Canal Water", "Income Generating"],
         status: "available",
+        contactName: "Venkatesh",
+        contactPhone: "+91 95432 10987",
       },
 
       // Rental Properties
@@ -155,6 +165,8 @@ export class MemStorage implements IStorage {
         bedrooms: 2,
         bathrooms: 2,
         status: "available",
+        contactName: "Priya Sharma",
+        contactPhone: "+91 94321 09876",
       },
       {
         type: "rental",
@@ -179,6 +191,8 @@ export class MemStorage implements IStorage {
         bedrooms: 3,
         bathrooms: 2,
         status: "available",
+        contactName: "Arun Patel",
+        contactPhone: "+91 93210 98765",
       },
       {
         type: "rental",
@@ -203,6 +217,8 @@ export class MemStorage implements IStorage {
         bedrooms: 1,
         bathrooms: 1,
         status: "available",
+        contactName: "Divya Krishnan",
+        contactPhone: "+91 92109 87654",
       },
       {
         type: "rental",
@@ -227,6 +243,8 @@ export class MemStorage implements IStorage {
         bedrooms: 4,
         bathrooms: 3,
         status: "available",
+        contactName: "Karthik Raman",
+        contactPhone: "+91 91098 76543",
       },
       {
         type: "rental",
@@ -251,6 +269,8 @@ export class MemStorage implements IStorage {
         bedrooms: 1,
         bathrooms: 1,
         status: "available",
+        contactName: "Anitha Sundaram",
+        contactPhone: "+91 90987 65432",
       },
       {
         type: "rental",
@@ -275,6 +295,8 @@ export class MemStorage implements IStorage {
         bedrooms: 3,
         bathrooms: 3,
         status: "available",
+        contactName: "Vijay Kumar",
+        contactPhone: "+91 89876 54321",
       },
 
       // Retail Spaces
@@ -299,6 +321,8 @@ export class MemStorage implements IStorage {
         ],
         features: ["Main Road Location", "Display Windows", "Parking Available", "High Traffic", "Modern Building"],
         status: "available",
+        contactName: "Ganesh Traders",
+        contactPhone: "+91 88765 43210",
       },
       {
         type: "retail",
@@ -321,6 +345,8 @@ export class MemStorage implements IStorage {
         ],
         features: ["3 Floors", "Elevator", "Parking Space", "Commercial Zone", "Investment Opportunity"],
         status: "available",
+        contactName: "Murugan Enterprises",
+        contactPhone: "+91 87654 32109",
       },
       {
         type: "retail",
@@ -343,6 +369,8 @@ export class MemStorage implements IStorage {
         ],
         features: ["Shopping Complex", "Central AC", "Ready to Move", "Good Footfall", "Modern Amenities"],
         status: "available",
+        contactName: "Balaji Properties",
+        contactPhone: "+91 86543 21098",
       },
       {
         type: "retail",
@@ -365,6 +393,8 @@ export class MemStorage implements IStorage {
         ],
         features: ["IT Ready", "Conference Room", "Pantry", "High Speed Internet", "Employee Parking"],
         status: "available",
+        contactName: "Sridevi Realty",
+        contactPhone: "+91 85432 10987",
       },
       {
         type: "retail",
@@ -387,6 +417,8 @@ export class MemStorage implements IStorage {
         ],
         features: ["Commercial Kitchen", "50 Seating", "Exhaust System", "Gas Connection", "Strategic Location"],
         status: "available",
+        contactName: "Natarajan & Sons",
+        contactPhone: "+91 84321 09876",
       },
       {
         type: "retail",
@@ -409,6 +441,8 @@ export class MemStorage implements IStorage {
         ],
         features: ["Consultation Rooms", "Laboratory Space", "Ramp Access", "Healthcare Hub", "Waiting Area"],
         status: "available",
+        contactName: "Selvam Commercial",
+        contactPhone: "+91 83210 98765",
       },
       {
         type: "retail",
@@ -431,6 +465,8 @@ export class MemStorage implements IStorage {
         ],
         features: ["Shop + Residence", "Corner Location", "High Visibility", "Live-Work Space", "Town Center"],
         status: "available",
+        contactName: "Krishna Real Estate",
+        contactPhone: "+91 82109 87654",
       },
     ];
 
