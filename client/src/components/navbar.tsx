@@ -47,6 +47,9 @@ export function Navbar() {
           </div>
 
           <div className="hidden md:flex items-center gap-2">
+            <Link href="/contact">
+              <Button variant="ghost" data-testid="nav-contact">Contact Us</Button>
+            </Link>
             <Link href="/about">
               <Button variant="ghost" data-testid="nav-about">About</Button>
             </Link>
@@ -81,6 +84,15 @@ export function Navbar() {
                 </Link>
               );
             })}
+            <Link href="/contact">
+              <Button
+                variant="ghost"
+                className="w-full justify-start"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contact Us
+              </Button>
+            </Link>
             <Link href="/about">
               <Button
                 variant="ghost"
