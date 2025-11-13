@@ -2,9 +2,9 @@
 
 ## Overview
 
-Cheyyar Properties is a minimal-cost, browse-only real estate listing platform focused on the Cheyyar region in Tamil Nadu, India. The platform enables users to browse, search, and filter three types of properties: land plots, rental spaces, and retail spaces. It features an interactive map view with clickable filter buttons, property favorites stored in localStorage, and detailed property pages.
+Cheyyar Properties is a real estate listing platform focused on the Cheyyar region in Tamil Nadu, India. The platform enables users to browse, search, and filter three types of properties: land plots, rental spaces, and retail spaces. It features an interactive map view with clickable filter buttons, property favorites stored in localStorage, detailed property pages, and contact information for property owners and the business.
 
-The application is built as a full-stack web application with a modern React frontend and Express.js backend, designed to provide a visual-first property browsing experience with robust search and filtering capabilities. The platform uses in-memory storage and free map tiles to minimize operational costs.
+The application is built as a full-stack web application with a modern React frontend and Express.js backend, designed to provide a visual-first property browsing experience with robust search and filtering capabilities. Contact information is displayed as static text with click-to-call phone links - no forms or submission capabilities to keep costs minimal.
 
 ## User Preferences
 
@@ -44,7 +44,7 @@ Preferred communication style: Simple, everyday language.
 - GET `/api/properties/featured` - Get featured properties (5 newest available)
 - GET `/api/properties/:id` - Get single property details
 
-Note: The backend has no contact/messaging endpoints to minimize costs and complexity.
+Note: The backend has no contact form submission endpoints. Contact information is displayed statically for users to call directly.
 
 **Data Storage**:
 - Drizzle ORM configured for PostgreSQL
@@ -64,9 +64,10 @@ Note: The backend has no contact/messaging endpoints to minimize costs and compl
 - Geographic data: latitude, longitude, address, city, state
 - Media: images array, features array
 - Metadata: status (available/pending/sold), date listed, views count
+- Contact fields: contactName (property owner name), contactPhone (phone number for direct calls)
 - Conditional fields: bedrooms/bathrooms for rental properties
 
-Note: Contact information fields were removed to simplify the platform and reduce costs. The platform is browse-only with no contact/messaging functionality.
+Note: Contact information is displayed as static text with tel: links. No email field or contact forms to keep the platform simple.
 
 **Filtering System**:
 - Property type filtering
@@ -166,13 +167,13 @@ Note: Contact information fields were removed to simplify the platform and reduc
 
 ## Recent Changes (November 2025)
 
-**Contact Functionality Removal:**
-- Removed all contact/messaging features to create a minimal-cost, browse-only platform
-- Deleted contact page, forms, and navigation links
-- Removed POST /api/contact backend endpoint
-- Removed contactName, contactPhone, contactEmail fields from Property schema
-- Removed contacts table definition
-- Cleaned all 54 contact field references from sample data
+**Contact Information Display (Latest):**
+- Added contactName and contactPhone fields back to Property schema
+- All 18 sample properties include property owner contact information
+- Property detail pages display owner name and phone with click-to-call tel: links
+- Created static Contact page with business phone number and information
+- Added "Contact Us" link to navbar
+- NO contact forms or submission endpoints - display only with tel: links for direct calling
 
 **Map Filtering Enhancement:**
 - Converted legend badges into clickable filter toggle buttons
@@ -181,8 +182,9 @@ Note: Contact information fields were removed to simplify the platform and reduc
 - Verified filtering works correctly via e2e tests (5 land, 6 rental, 7 retail properties)
 
 **Current Platform Scope:**
-- Browse-only real estate listings (no contact/messaging)
+- Real estate listings with property owner contact information for direct calls
+- Static business contact page with phone number (no forms)
 - In-memory storage with 18+ sample Cheyyar properties
 - Client-side favorites using localStorage
 - Free OpenStreetMap tiles for zero API costs
-- Minimal backend footprint for cost optimization
+- Minimal backend footprint - no form submissions or contact endpoints
