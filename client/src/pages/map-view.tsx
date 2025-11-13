@@ -52,18 +52,48 @@ export default function MapView() {
           </Select>
 
           <div className="flex flex-wrap gap-2 mt-3">
-            <Badge className="bg-green-500/10 text-green-700 dark:text-green-400">
+            <Button
+              variant="outline"
+              size="sm"
+              className={`h-7 ${
+                typeFilter === "land"
+                  ? "bg-green-500/20 border-green-500 text-green-700 dark:text-green-400"
+                  : "bg-green-500/10 text-green-700 dark:text-green-400"
+              }`}
+              onClick={() => setTypeFilter(typeFilter === "land" ? "all" : "land")}
+              data-testid="filter-land"
+            >
               <div className="w-2 h-2 rounded-full bg-green-500 mr-1.5" />
               Land
-            </Badge>
-            <Badge className="bg-blue-500/10 text-blue-700 dark:text-blue-400">
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              className={`h-7 ${
+                typeFilter === "rental"
+                  ? "bg-blue-500/20 border-blue-500 text-blue-700 dark:text-blue-400"
+                  : "bg-blue-500/10 text-blue-700 dark:text-blue-400"
+              }`}
+              onClick={() => setTypeFilter(typeFilter === "rental" ? "all" : "rental")}
+              data-testid="filter-rental"
+            >
               <div className="w-2 h-2 rounded-full bg-blue-500 mr-1.5" />
               Rental
-            </Badge>
-            <Badge className="bg-purple-500/10 text-purple-700 dark:text-purple-400">
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              className={`h-7 ${
+                typeFilter === "retail"
+                  ? "bg-purple-500/20 border-purple-500 text-purple-700 dark:text-purple-400"
+                  : "bg-purple-500/10 text-purple-700 dark:text-purple-400"
+              }`}
+              onClick={() => setTypeFilter(typeFilter === "retail" ? "all" : "retail")}
+              data-testid="filter-retail"
+            >
               <div className="w-2 h-2 rounded-full bg-purple-500 mr-1.5" />
               Retail
-            </Badge>
+            </Button>
           </div>
 
           <p className="text-xs text-muted-foreground mt-3">
