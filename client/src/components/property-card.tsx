@@ -170,6 +170,8 @@ export function PropertyCard({ property, view = "grid" }: PropertyCardProps) {
             variant="secondary"
             className="absolute top-3 right-3"
             onClick={toggleFavorite}
+            aria-pressed={isFavorite}
+            aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
             data-testid={`button-favorite-${property.id}`}
           >
             <Heart className={`h-4 w-4 ${isFavorite ? "fill-current text-red-500" : ""}`} />
