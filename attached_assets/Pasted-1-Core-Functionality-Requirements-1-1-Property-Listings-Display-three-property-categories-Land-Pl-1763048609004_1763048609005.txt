@@ -1,0 +1,302 @@
+1. Core Functionality Requirements
+1.1 Property Listings
+
+Display three property categories: Land Plots, Rental Spaces, Retail Spaces
+Each listing must include:
+
+Property title and description
+Price (sale or monthly rent)
+Size (acres for land, sq ft for buildings)
+Location address
+Property images (gallery with 4-8 photos minimum)
+Key features/amenities
+Contact information
+Date listed
+Property status (Available, Pending, Sold/Rented)
+
+
+
+1.2 Search and Filter System
+
+Search bar with autocomplete for addresses and property names
+Filters:
+
+Property type (Land, Rental, Retail)
+Price range (min/max slider)
+Size range
+Location/neighborhood
+Number of bedrooms/bathrooms (for rentals)
+Date listed (newest first, oldest first)
+Property status
+
+
+Sort options: Price (low-high, high-low), Size, Date listed, Relevance
+Save search preferences
+Real-time filter updates without page reload
+
+1.3 Interactive Map Integration
+
+Interactive map showing all available properties
+Color-coded markers by property type (Land: green, Rental: blue, Retail: red)
+Click markers to view property cards with quick details
+Map zoom and pan functionality
+Toggle property types on/off
+Draw custom search areas on map
+Street view integration (if available)
+
+
+2. User Interface Requirements
+2.1 Homepage
+
+Hero section with compelling headline and call-to-action
+Quick search bar prominently displayed
+Featured properties carousel (3-5 rotating listings)
+Property type cards (Land, Rental, Retail) with counts
+Recent listings section
+Interactive statistics (total properties, average prices by type)
+Testimonials or community information
+Newsletter signup
+
+2.2 Listing Pages
+
+Grid and list view toggle
+Infinite scroll or pagination (20 properties per page)
+Property cards showing:
+
+Main image
+Price
+Size
+Location
+Quick stats
+Favorite/save button
+"View Details" button
+
+
+
+2.3 Property Detail Page
+
+Full image gallery with lightbox viewer
+Detailed property information organized in sections
+Interactive map showing exact location
+Similar properties recommendations
+Contact form or call-to-action button
+Share functionality (social media, email, copy link)
+Print-friendly view
+Schedule viewing button
+Mortgage/rent calculator (for applicable properties)
+
+2.4 Design Requirements
+
+Modern, clean, professional aesthetic
+Mobile-first responsive design
+Smooth animations and transitions
+Loading states for all async operations
+Accessible color contrast (WCAG AA compliant)
+Consistent typography hierarchy
+Professional photography display
+
+
+3. Interactive & Engagement Features
+3.1 User Engagement
+
+Property comparison tool (compare up to 3 properties side-by-side)
+Save favorite properties (stored locally or with account)
+Property alerts (email notifications for new matching listings)
+Virtual tour integration (360° photos or video walkthrough links)
+Interactive neighborhood information (schools, amenities, demographics)
+Price history graphs for properties
+Property value estimator tool
+
+3.2 Contact & Lead Generation
+
+Multi-channel contact options:
+
+Contact form with property inquiry
+Phone number click-to-call
+Email link
+Schedule showing calendar
+
+
+Live chat widget (optional)
+Agent/property manager profiles with bio and listings
+
+3.3 Dynamic Content
+
+Real-time property availability updates
+Recently viewed properties section
+"New" badges on listings less than 7 days old
+Trending/popular properties section
+Market insights dashboard (average prices, inventory levels)
+
+
+4. Technical Requirements
+4.1 Frontend Technology Stack
+
+Framework: React, Vue.js, or modern vanilla JavaScript
+Styling: Tailwind CSS or modern CSS framework
+Map Integration: Leaflet.js, Mapbox, or Google Maps API
+Image Handling: Lazy loading, optimized formats (WebP)
+State Management: Context API, Redux, or Pinia
+
+4.2 Performance Requirements
+
+Page load time under 3 seconds
+Lighthouse score: 90+ on Performance
+Image optimization and lazy loading
+Minimal JavaScript bundle size
+Caching strategy for static assets
+
+4.3 Data Structure
+javascriptProperty Schema:
+{
+  id: unique identifier,
+  type: "land" | "rental" | "retail",
+  title: string,
+  description: string,
+  price: number,
+  priceType: "sale" | "rent_monthly",
+  size: {value: number, unit: "acres" | "sqft"},
+  location: {
+    address: string,
+    city: "Cheyyar",
+    state: "TN",
+    coordinates: {lat: number, lng: number}
+  },
+  images: [array of image URLs],
+  features: [array of strings],
+  bedrooms: number (for rentals),
+  bathrooms: number (for rentals),
+  status: "available" | "pending" | "sold",
+  dateListedDate,
+  contactInfo: {name, phone, email},
+  views: number
+}
+4.4 Browser Compatibility
+
+Chrome (latest 2 versions)
+Firefox (latest 2 versions)
+Safari (latest 2 versions)
+Edge (latest 2 versions)
+Mobile browsers (iOS Safari, Chrome Mobile)
+
+
+5. Content Requirements
+5.1 Initial Data
+
+Minimum 20-30 sample property listings across all categories
+Realistic sample data including:
+
+Property descriptions (100-300 words)
+Pricing appropriate for Cheyyar, TN market
+4-6 placeholder images per property
+Realistic addresses and coordinates for Cheyyar, TN
+
+
+
+5.2 Static Pages
+
+About Us page
+Contact page with form
+FAQ page
+Terms of Service
+Privacy Policy
+How to List Your Property guide
+
+
+6. Mobile Responsiveness
+6.1 Mobile-Specific Features
+
+Touch-friendly UI elements (min 44x44px tap targets)
+Swipeable image galleries
+Mobile-optimized map controls
+Collapsible filter sidebar
+Bottom navigation or hamburger menu
+Click-to-call buttons prominently displayed
+
+6.2 Breakpoints
+
+Mobile: 320px - 767px
+Tablet: 768px - 1024px
+Desktop: 1025px+
+
+
+7. Accessibility Requirements
+
+Semantic HTML structure
+ARIA labels for interactive elements
+Keyboard navigation support
+Screen reader compatibility
+Alt text for all images
+Focus indicators for form inputs and buttons
+Proper heading hierarchy
+
+
+8. SEO Considerations
+
+Semantic HTML markup
+Meta descriptions for all pages
+Open Graph tags for social sharing
+Descriptive page titles
+Schema.org structured data for real estate listings
+Fast page load times
+Mobile-friendly design
+
+
+9. Future Enhancement Ideas (Optional)
+
+User authentication and accounts
+Property owner dashboard to manage listings
+Advanced analytics for property views
+Integration with external listing services
+Payment processing for premium listings
+Mobile app version
+Community forum or reviews
+Mortgage calculator integration
+CRM integration for lead management
+
+
+10. Deliverables Checklist
+Phase 1: Core Website
+
+ Fully responsive homepage
+ Property listing page with filters and search
+ Individual property detail pages
+ Interactive map with all properties
+ 20+ sample property listings
+ Contact forms functional
+
+Phase 2: Enhanced Features
+
+ Property comparison tool
+ Save favorites functionality
+ Mobile optimization complete
+ All static pages created
+ Analytics integration
+
+Phase 3: Polish
+
+ Performance optimization
+ Accessibility audit passed
+ Cross-browser testing complete
+ SEO implementation
+ User testing and refinements
+
+
+Success Metrics
+
+User Engagement: Average session duration > 3 minutes
+Performance: Page load < 3 seconds
+Mobile Traffic: Site fully functional on mobile devices
+Lead Generation: Clear path from browsing to inquiry
+User Experience: Intuitive navigation with < 3 clicks to any property
+
+
+Notes for AI Agent
+
+Prioritize a modern, visually appealing design that builds trust
+Focus on user experience and intuitive navigation
+Ensure all interactive elements provide immediate feedback
+Use real estate industry best practices (inspired by Zillow, Realtor.com)
+Create engaging micro-interactions (hover effects, smooth transitions)
+Implement progressive enhancement (works without JavaScript for core features)
+Use placeholder images that represent actual property types appropriately
