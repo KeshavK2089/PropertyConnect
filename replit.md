@@ -2,9 +2,9 @@
 
 ## Overview
 
-Cheyyar Properties is a real estate listing platform focused on the Cheyyar region in Tamil Nadu, India. The platform enables users to browse, search, and filter three types of properties: land plots, rental spaces, and retail spaces. It features an interactive map view, property favorites, detailed property pages, and contact forms for inquiring about listings.
+Cheyyar Properties is a minimal-cost, browse-only real estate listing platform focused on the Cheyyar region in Tamil Nadu, India. The platform enables users to browse, search, and filter three types of properties: land plots, rental spaces, and retail spaces. It features an interactive map view with clickable filter buttons, property favorites stored in localStorage, and detailed property pages.
 
-The application is built as a full-stack web application with a modern React frontend and Express.js backend, designed to provide a visual-first property browsing experience with robust search and filtering capabilities.
+The application is built as a full-stack web application with a modern React frontend and Express.js backend, designed to provide a visual-first property browsing experience with robust search and filtering capabilities. The platform uses in-memory storage and free map tiles to minimize operational costs.
 
 ## User Preferences
 
@@ -43,7 +43,8 @@ Preferred communication style: Simple, everyday language.
 - GET `/api/properties` - List all properties with optional filtering
 - GET `/api/properties/featured` - Get featured properties (5 newest available)
 - GET `/api/properties/:id` - Get single property details
-- POST `/api/contact` - Submit contact form inquiries
+
+Note: The backend has no contact/messaging endpoints to minimize costs and complexity.
 
 **Data Storage**:
 - Drizzle ORM configured for PostgreSQL
@@ -63,14 +64,9 @@ Preferred communication style: Simple, everyday language.
 - Geographic data: latitude, longitude, address, city, state
 - Media: images array, features array
 - Metadata: status (available/pending/sold), date listed, views count
-- Contact information: name, phone, email
 - Conditional fields: bedrooms/bathrooms for rental properties
 
-**Contact Schema**:
-- User information: name, email, phone
-- Message content
-- Optional property ID for property-specific inquiries
-- Timestamp for tracking
+Note: Contact information fields were removed to simplify the platform and reduce costs. The platform is browse-only with no contact/messaging functionality.
 
 **Filtering System**:
 - Property type filtering
@@ -87,8 +83,10 @@ Preferred communication style: Simple, everyday language.
 - Leaflet.js for map rendering using OpenStreetMap tiles
 - Color-coded markers by property type (land: green, rental: blue, retail: purple)
 - Click-to-view property details
-- Type filtering on map view
+- Clickable filter buttons to toggle property types (Land, Rental, Retail)
+- Select dropdown for type filtering
 - Custom marker styling for selected properties
+- Dynamic marker and sidebar filtering based on selected type
 
 **Search and Filter**:
 - Real-time client-side filtering
@@ -139,7 +137,7 @@ Preferred communication style: Simple, everyday language.
 **PostgreSQL** (configured via Drizzle):
 - Connection via `DATABASE_URL` environment variable
 - Schema migrations in `./migrations` directory
-- Two main tables: `properties` and `contacts`
+- Single table: `properties` (using in-memory MemStorage for development)
 
 ### External Services
 
@@ -165,3 +163,26 @@ Preferred communication style: Simple, everyday language.
 - `drizzle.config.ts` - Database connection and migration settings
 - `vite.config.ts` - Build configuration with path aliases
 - `tsconfig.json` - TypeScript compiler options with path mapping
+
+## Recent Changes (November 2025)
+
+**Contact Functionality Removal:**
+- Removed all contact/messaging features to create a minimal-cost, browse-only platform
+- Deleted contact page, forms, and navigation links
+- Removed POST /api/contact backend endpoint
+- Removed contactName, contactPhone, contactEmail fields from Property schema
+- Removed contacts table definition
+- Cleaned all 54 contact field references from sample data
+
+**Map Filtering Enhancement:**
+- Converted legend badges into clickable filter toggle buttons
+- Added visual highlighting for active filter state
+- Improved UX with both button and dropdown filtering options
+- Verified filtering works correctly via e2e tests (5 land, 6 rental, 7 retail properties)
+
+**Current Platform Scope:**
+- Browse-only real estate listings (no contact/messaging)
+- In-memory storage with 18+ sample Cheyyar properties
+- Client-side favorites using localStorage
+- Free OpenStreetMap tiles for zero API costs
+- Minimal backend footprint for cost optimization
