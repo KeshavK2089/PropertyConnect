@@ -170,17 +170,6 @@ export function PropertyCard({ property, view = "grid" }: PropertyCardProps) {
               {property.type.charAt(0).toUpperCase() + property.type.slice(1)}
             </Badge>
           </div>
-          <Button
-            size="icon"
-            variant="secondary"
-            className="absolute bottom-3 right-3 bg-white/90 hover:bg-white shadow-lg backdrop-blur-sm dark:bg-gray-900/90 dark:hover:bg-gray-900"
-            onClick={toggleFavorite}
-            aria-pressed={isFavorite}
-            aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
-            data-testid={`button-favorite-${property.id}`}
-          >
-            <Heart className={`h-5 w-5 ${isFavorite ? "fill-red-500 text-red-500" : "text-gray-700 dark:text-gray-300"}`} />
-          </Button>
         </div>
 
         <CardContent className="p-6 flex-1 flex flex-col">
@@ -227,9 +216,21 @@ export function PropertyCard({ property, view = "grid" }: PropertyCardProps) {
             </div>
           </div>
 
-          <Button className="w-full mt-auto" data-testid={`button-view-${property.id}`}>
-            View Details
-          </Button>
+          <div className="flex gap-2 mt-auto">
+            <Button
+              size="icon"
+              variant="secondary"
+              onClick={toggleFavorite}
+              aria-pressed={isFavorite}
+              aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
+              data-testid={`button-favorite-${property.id}`}
+            >
+              <Heart className={`h-5 w-5 ${isFavorite ? "fill-red-500 text-red-500" : "text-gray-700 dark:text-gray-300"}`} />
+            </Button>
+            <Button className="flex-1" data-testid={`button-view-${property.id}`}>
+              View Details
+            </Button>
+          </div>
         </CardContent>
       </Card>
     </Link>
