@@ -2,6 +2,7 @@ import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Home, List, Heart, Map, Menu, X } from "lucide-react";
 import { useState } from "react";
+import mountainLogo from "@assets/generated_images/Mountain_logo_for_header_4a69b5a7.png";
 
 export function Navbar() {
   const [location] = useLocation();
@@ -19,11 +20,11 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link href="/">
-            <div className="flex items-center gap-2 cursor-pointer">
-              <div className="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
-                <Home className="h-5 w-5 text-primary-foreground" />
-              </div>
-              <span className="font-bold text-xl">Cheyyar Properties</span>
+            <div className="flex items-center gap-3 cursor-pointer">
+              <img src={mountainLogo} alt="Cheyyar Properties" className="w-10 h-10 object-contain" />
+              <span className="font-bold text-xl bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+                Cheyyar Properties
+              </span>
             </div>
           </Link>
 
