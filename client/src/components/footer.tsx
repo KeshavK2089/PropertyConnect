@@ -1,5 +1,6 @@
 import { Link } from "wouter";
-import { Home, Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
+import mountainLogo from "@assets/generated_images/Mountain_logo_for_header_4a69b5a7.png";
 
 export function Footer() {
   return (
@@ -8,10 +9,8 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
-                <Home className="h-5 w-5 text-primary-foreground" />
-              </div>
-              <span className="font-bold text-lg">Cheyyar Properties</span>
+              <img src={mountainLogo} alt="Cheyyar Properties" className="w-8 h-8 object-contain" />
+              <span className="font-bold text-lg bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">Cheyyar Properties</span>
             </div>
             <p className="text-sm text-muted-foreground">
               Your trusted partner for finding quality land plots, rental homes, and retail spaces in Cheyyar, Tamil Nadu.

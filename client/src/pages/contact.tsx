@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Phone, MapPin, Clock, Mail } from "lucide-react";
+import { Phone, MapPin, Clock, Mail, PlusCircle } from "lucide-react";
 
 export default function Contact() {
   return (
@@ -12,6 +12,56 @@ export default function Contact() {
             Have questions about our properties? Get in touch with us directly
           </p>
         </div>
+
+        <Card className="mb-8 bg-primary/5 border-primary/20">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-2xl">
+              <PlusCircle className="h-6 w-6 text-primary" />
+              Want to List Your Property?
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-muted-foreground mb-6">
+              Are you a property owner looking to sell or rent out your land, home, or commercial space in Cheyyar? 
+              We can help you reach serious buyers and tenants. Contact us using the information below to get started.
+            </p>
+            <div className="grid md:grid-cols-2 gap-4 mb-4">
+              <div className="flex items-start gap-3 bg-background p-4 rounded-lg">
+                <Phone className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-semibold mb-1">Call Our Listing Team</p>
+                  <a 
+                    href="tel:+919876543210" 
+                    className="text-primary hover:underline font-semibold"
+                    data-testid="link-listing-phone"
+                  >
+                    +91 98765 43210
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-start gap-3 bg-background p-4 rounded-lg">
+                <Mail className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-semibold mb-1">Email Property Details</p>
+                  <a 
+                    href="mailto:listings@cheyyarproperties.com" 
+                    className="text-primary hover:underline font-semibold text-sm break-all"
+                    data-testid="link-listing-email"
+                  >
+                    listings@cheyyarproperties.com
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="bg-background p-4 rounded-lg">
+              <p className="text-sm text-muted-foreground">
+                <strong>Information to provide:</strong> Property type, exact location and address, 
+                size/dimensions, asking price or rent, key features, your contact details, and photos if available. 
+                We'll get back to you within 1-2 business days.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           <Card>

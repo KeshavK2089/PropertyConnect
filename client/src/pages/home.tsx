@@ -14,7 +14,6 @@ import heroImage from "@assets/generated_images/Cheyyar_hero_landscape_panorama_
 import landImage from "@assets/generated_images/Agricultural_land_plot_864c3a06.png";
 import rentalImage from "@assets/generated_images/Rental_house_exterior_27cfd0fa.png";
 import retailImage from "@assets/generated_images/Retail_space_storefront_c915fe5f.png";
-import mountainLogo from "@assets/generated_images/Mountain_logo_for_header_4a69b5a7.png";
 
 export default function Home() {
   const [, setLocation] = useLocation();
@@ -312,6 +311,7 @@ export default function Home() {
                     <a 
                       href="tel:+919876543210" 
                       className="text-lg font-bold text-primary hover:underline"
+                      data-testid="link-seller-phone"
                     >
                       +91 98765 43210
                     </a>
@@ -328,6 +328,7 @@ export default function Home() {
                     <a 
                       href="mailto:listings@cheyyarproperties.com" 
                       className="text-lg font-bold text-primary hover:underline break-all"
+                      data-testid="link-seller-email"
                     >
                       listings@cheyyarproperties.com
                     </a>
@@ -371,42 +372,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <footer className="bg-background border-t">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col items-center gap-4">
-            <Link href="/">
-              <img 
-                src={mountainLogo} 
-                alt="Cheyyar Properties" 
-                className="w-12 h-12 object-contain cursor-pointer hover:opacity-80 transition-opacity" 
-              />
-            </Link>
-            <div className="text-center">
-              <h3 className="text-lg font-semibold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent mb-2">
-                Cheyyar Properties
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                Your trusted partner for real estate in Cheyyar, Tamil Nadu
-              </p>
-            </div>
-            <div className="flex gap-6 text-sm text-muted-foreground">
-              <Link href="/listings">
-                <a className="hover:text-primary transition-colors">Properties</a>
-              </Link>
-              <Link href="/contact">
-                <a className="hover:text-primary transition-colors">Contact</a>
-              </Link>
-              <Link href="/favorites">
-                <a className="hover:text-primary transition-colors">Favorites</a>
-              </Link>
-            </div>
-            <p className="text-xs text-muted-foreground mt-4">
-              © 2025 Cheyyar Properties. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
