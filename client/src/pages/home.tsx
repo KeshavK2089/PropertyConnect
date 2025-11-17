@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { PropertyCard } from "@/components/property-card";
-import { Search, TrendingUp, Building2, Home as HomeIcon, Store, MapPin } from "lucide-react";
+import { Search, TrendingUp, Building2, Home as HomeIcon, Store, MapPin, Phone, Mail, PlusCircle } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { useState } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
@@ -14,6 +14,7 @@ import heroImage from "@assets/generated_images/Cheyyar_hero_landscape_panorama_
 import landImage from "@assets/generated_images/Agricultural_land_plot_864c3a06.png";
 import rentalImage from "@assets/generated_images/Rental_house_exterior_27cfd0fa.png";
 import retailImage from "@assets/generated_images/Retail_space_storefront_c915fe5f.png";
+import mountainLogo from "@assets/generated_images/Mountain_logo_for_header_4a69b5a7.png";
 
 export default function Home() {
   const [, setLocation] = useLocation();
@@ -288,6 +289,70 @@ export default function Home() {
         </section>
       )}
 
+      <section className="py-16 bg-primary/5">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <PlusCircle className="h-12 w-12 mx-auto mb-4 text-primary" />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">List Your Property</h2>
+            <p className="text-lg text-muted-foreground mb-8">
+              Have a property to sell or rent? We can help you reach potential buyers and tenants in Cheyyar
+            </p>
+          </div>
+
+          <Card className="max-w-3xl mx-auto">
+            <CardContent className="p-8">
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <div className="flex items-start gap-3">
+                  <Phone className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-semibold mb-2">Call Us</h3>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      Speak with our listing specialists
+                    </p>
+                    <a 
+                      href="tel:+919876543210" 
+                      className="text-lg font-bold text-primary hover:underline"
+                    >
+                      +91 98765 43210
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <Mail className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-semibold mb-2">Email Us</h3>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      Send us your property details
+                    </p>
+                    <a 
+                      href="mailto:listings@cheyyarproperties.com" 
+                      className="text-lg font-bold text-primary hover:underline break-all"
+                    >
+                      listings@cheyyarproperties.com
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-muted p-4 rounded-lg mb-6">
+                <p className="text-sm text-muted-foreground">
+                  <strong>What to include:</strong> Property type, location, size, price expectations, 
+                  contact details, and any photos. Our team will review and contact you within 24-48 hours.
+                </p>
+              </div>
+
+              <Link href="/contact">
+                <Button size="lg" className="w-full gap-2" data-testid="button-list-property">
+                  <Phone className="h-5 w-5" />
+                  Contact Us to List Your Property
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
       <section className="py-16 bg-muted/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -306,6 +371,42 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <footer className="bg-background border-t">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="flex flex-col items-center gap-4">
+            <Link href="/">
+              <img 
+                src={mountainLogo} 
+                alt="Cheyyar Properties" 
+                className="w-12 h-12 object-contain cursor-pointer hover:opacity-80 transition-opacity" 
+              />
+            </Link>
+            <div className="text-center">
+              <h3 className="text-lg font-semibold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent mb-2">
+                Cheyyar Properties
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Your trusted partner for real estate in Cheyyar, Tamil Nadu
+              </p>
+            </div>
+            <div className="flex gap-6 text-sm text-muted-foreground">
+              <Link href="/listings">
+                <a className="hover:text-primary transition-colors">Properties</a>
+              </Link>
+              <Link href="/contact">
+                <a className="hover:text-primary transition-colors">Contact</a>
+              </Link>
+              <Link href="/favorites">
+                <a className="hover:text-primary transition-colors">Favorites</a>
+              </Link>
+            </div>
+            <p className="text-xs text-muted-foreground mt-4">
+              © 2025 Cheyyar Properties. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
