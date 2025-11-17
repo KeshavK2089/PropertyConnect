@@ -81,11 +81,11 @@ export function PropertyCard({ property, view = "grid" }: PropertyCardProps) {
               <Button
                 size="icon"
                 variant="secondary"
-                className="absolute top-3 right-3"
+                className="absolute top-3 right-3 bg-white/90 hover:bg-white shadow-lg backdrop-blur-sm dark:bg-gray-900/90 dark:hover:bg-gray-900"
                 onClick={toggleFavorite}
                 data-testid={`button-favorite-${property.id}`}
               >
-                <Heart className={`h-4 w-4 ${isFavorite ? "fill-current text-red-500" : ""}`} />
+                <Heart className={`h-5 w-5 ${isFavorite ? "fill-red-500 text-red-500" : "text-gray-700 dark:text-gray-300"}`} />
               </Button>
             </div>
             <CardContent className="flex-1 p-6">
@@ -168,13 +168,13 @@ export function PropertyCard({ property, view = "grid" }: PropertyCardProps) {
           <Button
             size="icon"
             variant="secondary"
-            className="absolute top-3 right-3"
+            className="absolute top-3 right-3 bg-white/90 hover:bg-white shadow-lg backdrop-blur-sm dark:bg-gray-900/90 dark:hover:bg-gray-900"
             onClick={toggleFavorite}
             aria-pressed={isFavorite}
             aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
             data-testid={`button-favorite-${property.id}`}
           >
-            <Heart className={`h-4 w-4 ${isFavorite ? "fill-current text-red-500" : ""}`} />
+            <Heart className={`h-5 w-5 ${isFavorite ? "fill-red-500 text-red-500" : "text-gray-700 dark:text-gray-300"}`} />
           </Button>
           <div className="absolute bottom-3 left-3 flex gap-2">
             <Badge className={getTypeColor(property.type)}>
