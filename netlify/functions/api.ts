@@ -1,14 +1,6 @@
-import express from "express";
 import serverless from "serverless-http";
-import { registerRoutes } from "../../server/routes";
+import { createApp } from "../../server/app";
 
-const app = express();
+const app = createApp();
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-
-// Setup routes
-await registerRoutes(app);
-
-// Export serverless handler
 export const handler = serverless(app);

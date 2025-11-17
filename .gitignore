@@ -27,3 +27,6 @@ build/
 *.temp
 .replit
 replit.nix
+
+# Netlify
+.netlify

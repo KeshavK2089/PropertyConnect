@@ -193,46 +193,42 @@ The design draws inspiration from leading real estate platforms like Zillow whil
 
 ## Deployment
 
-### Replit Deployment (Recommended)
-This project is deployed on Replit. To publish:
+**See [DEPLOYMENT.md](DEPLOYMENT.md) for complete step-by-step deployment instructions.**
+
+### Quick Start: Deploy to Netlify (Recommended)
+
+This project is configured for seamless Netlify deployment:
+
+1. Push your code to GitHub
+2. Connect your GitHub repository to Netlify
+3. Netlify auto-detects settings from `netlify.toml`
+4. Click "Deploy" and your site goes live in minutes
+
+**Why Netlify?**
+- ✅ Supports full-stack apps (React frontend + Express backend as serverless functions)
+- ✅ Free tier with 100GB bandwidth and 125K function calls/month
+- ✅ Automatic deployments from GitHub
+- ✅ Free SSL and custom domains
+- ✅ Easy setup with zero configuration needed
+
+### Alternative: Replit Deployment
+
+You can also deploy directly from Replit:
 
 1. Click the "Publish" button in Replit
 2. Choose deployment type (Autoscale recommended)
-3. Configure domain and settings
-4. Click "Publish" to go live
+3. Your app will be live at `https://your-repl-name.repl.co`
 
-Your app will be accessible at `https://your-repl-name.repl.co`
+### Why Not GitHub Pages?
 
-### Alternative Deployment Options
+GitHub Pages only supports static websites (HTML/CSS/JS files) and **cannot run the Express.js backend**. Since Cheyyar Properties is a full-stack application with API routes, it requires a platform that supports serverless functions or Node.js hosting.
 
-This is a full-stack application (Express backend + React frontend) that requires:
-- Node.js runtime for the backend
-- PostgreSQL database support (or in-memory storage)
-- Support for both frontend and backend deployment
-
-**Recommended platforms for full-stack deployment:**
-
-1. **Vercel** - Free tier available, excellent for full-stack apps
-   - Supports Express backend via serverless functions
-   - Automatic deployments from GitHub
-   - Custom domains included
-
-2. **Render** - Free tier available
-   - Supports full Express apps
-   - PostgreSQL database hosting
-   - Direct GitHub integration
-
-3. **Railway** - Free tier with usage limits
-   - Full backend support
-   - Database hosting included
-   - Simple GitHub deployment
-
-4. **Fly.io** - Free tier available
-   - Full control over backend
-   - Global deployment
-   - Dockerfile or buildpack support
-
-**Note:** GitHub Pages only supports static frontend files and cannot run the Express backend, so it's not suitable for this application.
+**Supported platforms:**
+- **Netlify** (Recommended - configured in this repo)
+- **Vercel** (Serverless functions)
+- **Render** (Full Node.js hosting)
+- **Railway** (Full backend support)
+- **Replit** (Easiest for development)
 
 ## Configuration
 

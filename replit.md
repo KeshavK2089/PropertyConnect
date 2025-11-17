@@ -167,6 +167,17 @@ Note: Contact information is displayed as static text with tel: links. No email 
 
 ## Recent Changes (November 2025)
 
+**Netlify Deployment Configuration (Latest - November 17):**
+- Installed serverless-http package for Express serverless deployment
+- Created netlify/functions/api.ts serverless function wrapper
+- Created netlify.toml with build settings and API redirects
+- Added comprehensive DEPLOYMENT.md guide with step-by-step Netlify instructions
+- Updated .gitignore to exclude Netlify build artifacts
+- Configured automatic GitHub-to-Netlify deployment workflow
+- Note: GitHub Pages cannot host Express backend, so Netlify is the recommended deployment platform
+
+## Recent Changes (Earlier - November 2025)
+
 **UI/UX Redesign (Latest - November 17):**
 - Generated modern mountain logo to replace house icon in navbar
 - Company name now has gradient text effect (primary to blue-600)
