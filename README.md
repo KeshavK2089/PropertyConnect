@@ -55,7 +55,7 @@ A modern, mobile-responsive real estate platform for the Cheyyar region in Tamil
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/cheyyar-properties.git
+   git clone https://github.com/KeshavK2089/cheyyar-properties.git
    cd cheyyar-properties
    ```
 
@@ -79,6 +79,42 @@ A modern, mobile-responsive real estate platform for the Cheyyar region in Tamil
    ```
 
    The application will be available at `http://localhost:5000`
+
+## Pushing to GitHub
+
+### Initial Setup
+
+1. **Create a new repository on GitHub**
+   - Go to https://github.com/KeshavK2089
+   - Click "New repository"
+   - Name it `cheyyar-properties`
+   - Do NOT initialize with README (we already have one)
+
+2. **Push your code from Replit**
+   
+   Using Replit's Git pane:
+   - Open the Git pane in your Replit workspace
+   - Stage all changes
+   - Commit with message: "Initial commit - Cheyyar Properties platform"
+   - Add remote: `https://github.com/KeshavK2089/cheyyar-properties.git`
+   - Push to GitHub
+
+   Or using the Shell:
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit - Cheyyar Properties platform"
+   git branch -M main
+   git remote add origin https://github.com/KeshavK2089/cheyyar-properties.git
+   git push -u origin main
+   ```
+
+3. **For subsequent updates**
+   ```bash
+   git add .
+   git commit -m "Description of your changes"
+   git push
+   ```
 
 ## Project Structure
 
@@ -157,7 +193,7 @@ The design draws inspiration from leading real estate platforms like Zillow whil
 
 ## Deployment
 
-### Replit Deployment
+### Replit Deployment (Recommended)
 This project is deployed on Replit. To publish:
 
 1. Click the "Publish" button in Replit
@@ -165,16 +201,38 @@ This project is deployed on Replit. To publish:
 3. Configure domain and settings
 4. Click "Publish" to go live
 
-### Manual Deployment
-For deploying to other platforms:
+Your app will be accessible at `https://your-repl-name.repl.co`
 
-```bash
-# Build the project
-npm run build
+### Alternative Deployment Options
 
-# The build output will be in the dist/ folder
-# Deploy dist/ to your hosting platform
-```
+This is a full-stack application (Express backend + React frontend) that requires:
+- Node.js runtime for the backend
+- PostgreSQL database support (or in-memory storage)
+- Support for both frontend and backend deployment
+
+**Recommended platforms for full-stack deployment:**
+
+1. **Vercel** - Free tier available, excellent for full-stack apps
+   - Supports Express backend via serverless functions
+   - Automatic deployments from GitHub
+   - Custom domains included
+
+2. **Render** - Free tier available
+   - Supports full Express apps
+   - PostgreSQL database hosting
+   - Direct GitHub integration
+
+3. **Railway** - Free tier with usage limits
+   - Full backend support
+   - Database hosting included
+   - Simple GitHub deployment
+
+4. **Fly.io** - Free tier available
+   - Full control over backend
+   - Global deployment
+   - Dockerfile or buildpack support
+
+**Note:** GitHub Pages only supports static frontend files and cannot run the Express backend, so it's not suitable for this application.
 
 ## Configuration
 
