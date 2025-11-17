@@ -81,7 +81,7 @@ export function PropertyCard({ property, view = "grid" }: PropertyCardProps) {
               <Button
                 size="icon"
                 variant="secondary"
-                className="absolute top-3 right-3 bg-white/90 hover:bg-white shadow-lg backdrop-blur-sm dark:bg-gray-900/90 dark:hover:bg-gray-900"
+                className="absolute bottom-3 right-3 bg-white/90 hover:bg-white shadow-lg backdrop-blur-sm dark:bg-gray-900/90 dark:hover:bg-gray-900"
                 onClick={toggleFavorite}
                 data-testid={`button-favorite-${property.id}`}
               >
@@ -165,10 +165,15 @@ export function PropertyCard({ property, view = "grid" }: PropertyCardProps) {
           {isNew && (
             <Badge className="absolute top-3 left-3">New</Badge>
           )}
+          <div className="absolute bottom-3 left-3 flex gap-2">
+            <Badge className={getTypeColor(property.type)}>
+              {property.type.charAt(0).toUpperCase() + property.type.slice(1)}
+            </Badge>
+          </div>
           <Button
             size="icon"
             variant="secondary"
-            className="absolute top-3 right-3 bg-white/90 hover:bg-white shadow-lg backdrop-blur-sm dark:bg-gray-900/90 dark:hover:bg-gray-900"
+            className="absolute bottom-3 right-3 bg-white/90 hover:bg-white shadow-lg backdrop-blur-sm dark:bg-gray-900/90 dark:hover:bg-gray-900"
             onClick={toggleFavorite}
             aria-pressed={isFavorite}
             aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
@@ -176,11 +181,6 @@ export function PropertyCard({ property, view = "grid" }: PropertyCardProps) {
           >
             <Heart className={`h-5 w-5 ${isFavorite ? "fill-red-500 text-red-500" : "text-gray-700 dark:text-gray-300"}`} />
           </Button>
-          <div className="absolute bottom-3 left-3 flex gap-2">
-            <Badge className={getTypeColor(property.type)}>
-              {property.type.charAt(0).toUpperCase() + property.type.slice(1)}
-            </Badge>
-          </div>
         </div>
 
         <CardContent className="p-6 flex-1 flex flex-col">

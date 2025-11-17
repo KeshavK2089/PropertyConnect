@@ -167,8 +167,28 @@ Note: Contact information is displayed as static text with tel: links. No email 
 
 ## Recent Changes (November 2025)
 
-**Contact Information Display (Latest):**
-- Added contactName and contactPhone fields back to Property schema
+**UI/UX Redesign (Latest - November 17):**
+- Generated modern mountain logo to replace house icon in navbar
+- Company name now has gradient text effect (primary to blue-600)
+- Enhanced favorite button visibility on property cards:
+  - White/90% semi-transparent background with shadow
+  - Larger heart icon (5x5 instead of 4x4)
+  - Better color contrast (red-500 when favorited, gray-700 when not)
+  - Works in both light and dark modes
+- Improved mobile responsiveness:
+  - Responsive hero section heights (500px mobile → 650px desktop)
+  - Search bar stacks vertically on mobile
+  - Responsive typography throughout
+  - Better touch targets for mobile users
+- Zillow-inspired design refinements:
+  - Enhanced search bar with better backdrop blur and shadows
+  - Modern button styling with improved hover states
+  - Professional, minimal navigation layout
+- Added comprehensive README.md for GitHub repository
+- Added scroll-to-top functionality on all page navigations
+
+**Contact Information Display:**
+- Added contactName and contactPhone fields to Property schema
 - All 18 sample properties include property owner contact information
 - Property detail pages display owner name and phone with click-to-call tel: links
 - Created static Contact page with business phone number and information
@@ -182,9 +202,12 @@ Note: Contact information is displayed as static text with tel: links. No email 
 - Verified filtering works correctly via e2e tests (5 land, 6 rental, 7 retail properties)
 
 **Current Platform Scope:**
+- Modern, mobile-responsive real estate platform with mountain logo branding
 - Real estate listings with property owner contact information for direct calls
 - Static business contact page with phone number (no forms)
-- In-memory storage with 18+ sample Cheyyar properties
-- Client-side favorites using localStorage
+- In-memory storage with 18 sample Cheyyar properties
+- Client-side favorites using localStorage with highly visible heart icons
 - Free OpenStreetMap tiles for zero API costs
 - Minimal backend footprint - no form submissions or contact endpoints
+- Zillow-inspired design with clean, professional interface
+- Full mobile optimization for smartphone browsing
