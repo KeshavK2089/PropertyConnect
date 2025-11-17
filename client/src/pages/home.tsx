@@ -51,56 +51,56 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <section className="relative h-[600px] lg:h-[700px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[500px] sm:h-[600px] lg:h-[650px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src={heroImage}
             alt="Cheyyar landscape"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70" />
         </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 drop-shadow-lg">
+        <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 drop-shadow-2xl leading-tight">
             Find Your Perfect Property in Cheyyar
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl mb-8 text-white/90 drop-shadow-md">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-white/95 drop-shadow-lg max-w-2xl mx-auto">
             Discover quality land plots, rental homes, and retail spaces
           </p>
 
-          <form onSubmit={handleSearch} className="max-w-2xl mx-auto">
-            <div className="flex gap-2 backdrop-blur-sm bg-white/20 p-2 rounded-lg">
+          <form onSubmit={handleSearch} className="w-full max-w-3xl mx-auto">
+            <div className="flex flex-col sm:flex-row gap-2 backdrop-blur-md bg-white/10 p-3 sm:p-2 rounded-xl shadow-2xl">
               <div className="flex-1 relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-white/70" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-500" />
                 <Input
                   type="search"
                   placeholder="Search by location, property type, or features..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 bg-white/90 border-0 h-12 text-base"
+                  className="pl-10 bg-white border-0 h-12 sm:h-14 text-base shadow-sm"
                   data-testid="input-search-hero"
                 />
               </div>
-              <Button type="submit" size="lg" className="px-8" data-testid="button-search-hero">
+              <Button type="submit" size="lg" className="px-8 h-12 sm:h-14 text-base font-semibold" data-testid="button-search-hero">
                 Search
               </Button>
             </div>
           </form>
 
-          <div className="flex flex-wrap justify-center gap-3 mt-6">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mt-4 sm:mt-6">
             <Link href="/listings?type=land">
-              <Button variant="outline" className="backdrop-blur-sm bg-white/20 border-white/30 text-white hover:bg-white/30">
+              <Button variant="outline" className="backdrop-blur-md bg-white/10 border-white/40 text-white hover:bg-white/20 text-sm sm:text-base">
                 Land Plots
               </Button>
             </Link>
             <Link href="/listings?type=rental">
-              <Button variant="outline" className="backdrop-blur-sm bg-white/20 border-white/30 text-white hover:bg-white/30">
+              <Button variant="outline" className="backdrop-blur-md bg-white/10 border-white/40 text-white hover:bg-white/20 text-sm sm:text-base">
                 Rental Spaces
               </Button>
             </Link>
             <Link href="/listings?type=retail">
-              <Button variant="outline" className="backdrop-blur-sm bg-white/20 border-white/30 text-white hover:bg-white/30">
+              <Button variant="outline" className="backdrop-blur-md bg-white/10 border-white/40 text-white hover:bg-white/20 text-sm sm:text-base">
                 Retail Spaces
               </Button>
             </Link>
