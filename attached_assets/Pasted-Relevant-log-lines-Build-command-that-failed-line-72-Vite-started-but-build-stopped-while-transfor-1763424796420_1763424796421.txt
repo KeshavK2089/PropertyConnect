@@ -1,0 +1,67 @@
+Relevant log lines
+
+Build command that failed: line 72
+Vite started but build stopped while transforming: line 74 and line 75
+Netlify’s summary error: line 76
+Diagnosis
+
+The combined build step ("vite build && esbuild server/index.ts ...") returned a non‑zero exit code (2) — the esbuild step (server/index.ts) failed. See the command in line 72 and the final failure in line 76.
+Most likely causes:
+server/index.ts is missing or not committed to the repo (esbuild cannot open the entry file).
+server/index.ts imports or requires packages that esbuild cannot resolve or that are being treated as external (the command uses --packages=external), and those packages are not available/installed at build time or not referenced properly in package.json.
+Or esbuild is encountering a syntax/TS error in server/index.ts or an unresolved path import during bundling.
+What to check right now (quick verification)
+
+Confirm the server entry exists in the repo: https://github.com/KeshavK2089/PropertyConnect/blob/main/server/index.ts
+Confirm server dependencies are declared in package.json (so externalizing them will make sense): https://github.com/KeshavK2089/PropertyConnect/blob/main/package.json
+Reproduce locally to see the full esbuild error: run npm run build (the same script Netlify runs) and inspect the detailed error output.
+Specific fixes (pick the one that matches what you find)
+
+A) If server/index.ts is missing or not committed
+
+Add/commit the file to the repo (git add server/index.ts; git commit; git push). Netlify cannot bundle a file that is not in the repository.
+B) If esbuild reports "Could not resolve" or similar for packages you intended to bundle or treat as external
+
+First verify the package is listed in package.json or the file you intend to externalize is committed. If not, add it to package.json (npm install <pkg> --save) and commit package.json and package-lock.json.
+If you intentionally want esbuild to treat some packages as external at bundle time, keep --packages=external. If you want esbuild to bundle them instead, remove that flag from your build script. Example: edit package.json script from (current) to:
+{
+  "scripts": {
+    "build": "vite build && esbuild server/index.ts --platform=node --bundle --format=esm --outdir=dist"
+  }
+}
+Alternatively, if the problem is Vite/rollup externalization, add the package(s) to rollupOptions.external in vite.config.ts after verifying packages are present in package.json. Example:
+// vite.config.ts
+import { defineConfig } from 'vite';
+
+export default defineConfig({
+  build: {
+    rollupOptions: {
+      external: ['express'] // verify 'express' is in package.json before adding here
+    }
+  }
+});
+C) If esbuild fails due to a TypeScript/syntax error or unresolved relative import
+
+Run npm run build locally to see the detailed stack trace, fix the TypeScript/syntax error or correct the import path (case-sensitive path issues are common on Linux/Netlify).
+Ensure tsconfig.json is correct and that files are included in compilation.
+D) Debugging and logging
+
+Temporarily make the esbuild command verbose so you can see the true failure on Netlify. For example in package.json:
+{
+  "scripts": {
+    "build": "vite build && esbuild server/index.ts --platform=node --bundle --format=esm --outdir=dist --log-level=debug"
+  }
+}
+Then push and watch the Netlify logs for the precise error.
+
+If you see Node version related messages, change Node on Netlify by following Netlify’s doc: https://docs.netlify.com/configure-builds/manage-dependencies/#node-js-and-javascript
+
+Summary action list
+
+Verify server/index.ts exists and is committed: https://github.com/KeshavK2089/PropertyConnect/blob/main/server/index.ts
+Verify packages used by server/index.ts are in package.json: https://github.com/KeshavK2089/PropertyConnect/blob/main/package.json
+Reproduce locally (npm run build) to see exact esbuild message and then either:
+commit the missing files, or
+remove --packages=external to bundle dependencies, or
+add the missing packages to package.json and/or to rollupOptions.external (but only after verifying they exist in package.json).
+

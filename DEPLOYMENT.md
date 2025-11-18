@@ -46,7 +46,7 @@ git push
    Netlify should auto-detect the settings from `netlify.toml`, but verify:
    
    - **Branch to deploy:** `main` (or `master`)
-   - **Build command:** `npm install && npm run build`
+   - **Build command:** `vite build`
    - **Publish directory:** `dist/public`
    - **Functions directory:** `netlify/functions`
    
