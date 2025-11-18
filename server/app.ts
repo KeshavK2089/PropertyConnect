@@ -1,7 +1,7 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { storage } from "./storage";
 import { propertyFilterSchema, type PropertyFilter } from "@shared/schema";
-import { log } from "./vite";
+import { log } from "./utils";
 
 export function createApp() {
   const app = express();

@@ -1,0 +1,143 @@
+7:19:38 PM: Netlify Build                                                 
+7:19:38 PM: ────────────────────────────────────────────────────────────────
+7:19:38 PM: ​
+7:19:38 PM: ❯ Version
+7:19:38 PM:   @netlify/build 35.3.4
+7:19:38 PM: ​
+7:19:38 PM: ❯ Flags
+7:19:38 PM:   accountId: 688fd50c1d3e57c34e41ab7e
+7:19:38 PM:   baseRelDir: true
+7:19:38 PM:   buildId: 691bbb8d9c51a1d91715950a
+7:19:38 PM:   deployId: 691bbb8d9c51a1d91715950c
+7:19:38 PM: ​
+7:19:38 PM: ❯ Current directory
+7:19:38 PM:   /opt/build/repo
+7:19:38 PM: ​
+7:19:38 PM: ❯ Config file
+7:19:38 PM:   /opt/build/repo/netlify.toml
+7:19:38 PM: ​
+7:19:38 PM: ❯ Context
+7:19:38 PM:   production
+7:19:38 PM: ​
+7:19:38 PM: ❯ Installing extensions
+7:19:38 PM:    - neon
+7:19:53 PM: ​
+7:19:53 PM: ❯ Loading extensions
+7:19:53 PM:    - neon
+7:19:54 PM: ​
+7:19:54 PM: build.command from netlify.toml                               
+7:19:54 PM: ────────────────────────────────────────────────────────────────
+7:19:54 PM: ​
+7:19:54 PM: $ vite build
+7:19:54 PM: vite v5.4.20 building for production...
+7:19:54 PM: transforming...
+7:19:59 PM: Failed during stage 'building site': Build script returned non-zero exit code: 2 (https://ntl.fyi/exit-code-2)
+7:19:58 PM: A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+✓ 1745 modules transformed.
+7:19:58 PM: rendering chunks...
+7:19:58 PM: computing gzip size...
+7:19:58 PM: ../dist/public/index.html                                                        1.44 kB │ gzip:   0.69 kB
+7:19:58 PM: ../dist/public/assets/Mountain_logo_for_header_4a69b5a7-CohtQTRV.png           284.79 kB
+7:19:58 PM: ../dist/public/assets/Retail_space_storefront_c915fe5f-Cc0eqXeZ.png          1,759.44 kB
+7:19:58 PM: ../dist/public/assets/Cheyyar_hero_landscape_panorama_35d5b4a5-J5kyHRqG.png  1,908.69 kB
+7:19:58 PM: ../dist/public/assets/Rental_house_exterior_27cfd0fa-CS_dyIwz.png            1,952.25 kB
+7:19:58 PM: ../dist/public/assets/Agricultural_land_plot_864c3a06-BN7JAvwV.png           2,058.97 kB
+7:19:58 PM: ../dist/public/assets/index-_FdhqqxO.css                                       110.25 kB │ gzip:  21.40 kB
+7:19:58 PM: ../dist/public/assets/index-CS0ju57k.js                                        599.88 kB │ gzip: 181.86 kB
+7:19:58 PM: 
+7:19:58 PM: (!) Some chunks are larger than 500 kB after minification. Consider:
+7:19:58 PM: - Using dynamic import() to code-split the application
+7:19:58 PM: - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+7:19:58 PM: - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+7:19:58 PM: ✓ built in 3.39s
+7:19:58 PM: ​
+7:19:58 PM: (build.command completed in 3.6s)
+7:19:58 PM: ​
+7:19:58 PM: Functions bundling                                            
+7:19:58 PM: ────────────────────────────────────────────────────────────────
+7:19:58 PM: ​
+7:19:58 PM: Packaging Functions from netlify/functions directory:
+7:19:58 PM:  - api.ts
+7:19:58 PM: ​
+7:19:58 PM: ▲ [WARNING] "import.meta" is not available with the "cjs" output format and will be empty [empty-import-meta]
+7:19:58 PM:     server/vite.ts:71:32:
+7:19:58 PM:       71 │   const distPath = path.resolve(import.meta.dirname, "public");
+7:19:58 PM:          ╵                                 ~~~~~~~~~~~
+7:19:58 PM:   You need to set the output format to "esm" for "import.meta" to work correctly.
+7:19:58 PM: ✘ [ERROR] Top-level await is currently not supported with the "cjs" output format
+7:19:58 PM:     vite.config.ts:13:10:
+7:19:58 PM:       13 │           await import("@replit/vite-plugin-cartographer").then((m...
+7:19:58 PM:          ╵           ~~~~~
+7:19:58 PM: ✘ [ERROR] Top-level await is currently not supported with the "cjs" output format
+7:19:58 PM:     vite.config.ts:16:10:
+7:19:58 PM:       16 │           await import("@replit/vite-plugin-dev-banner").then((m) =>
+7:19:58 PM:          ╵           ~~~~~
+7:19:58 PM: ▲ [WARNING] "import.meta" is not available with the "cjs" output format and will be empty [empty-import-meta]
+7:19:58 PM:     vite.config.ts:24:24:
+7:19:58 PM:       24 │       "@": path.resolve(import.meta.dirname, "client", "src"),
+7:19:58 PM:          ╵                         ~~~~~~~~~~~
+7:19:58 PM:   You need to set the output format to "esm" for "import.meta" to work correctly.
+7:19:58 PM: ▲ [WARNING] "import.meta" is not available with the "cjs" output format and will be empty [empty-import-meta]
+7:19:58 PM:     vite.config.ts:25:30:
+7:19:58 PM:       25 │       "@shared": path.resolve(import.meta.dirname, "shared"),
+7:19:58 PM:          ╵                               ~~~~~~~~~~~
+7:19:58 PM:   You need to set the output format to "esm" for "import.meta" to work correctly.
+7:19:58 PM: ✘ [ERROR] Could not resolve "@babel/preset-typescript/package.json"
+7:19:58 PM:     node_modules/@babel/core/lib/config/files/module-types.js:171:36:
+7:19:58 PM:       171 │ ...t packageJson = require("@babel/preset-typescript/package.json");
+7:19:58 PM:           ╵                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+7:19:58 PM:   You can mark the path "@babel/preset-typescript/package.json" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle. You can also surround this "require" call with a try/catch block to handle this failure at run-time instead of bundle-time.
+7:19:58 PM: ✘ [ERROR] Could not resolve "../pkg"
+7:19:58 PM:     node_modules/lightningcss/node/index.js:17:27:
+7:19:58 PM:       17 │   module.exports = require(`../pkg`);
+7:19:58 PM:          ╵                            ~~~~~~~~
+7:19:58 PM: ▲ [WARNING] "import.meta" is not available with the "cjs" output format and will be empty [empty-import-meta]
+7:19:58 PM:     vite.config.ts:26:30:
+7:19:58 PM:       26 │ ...  "@assets": path.resolve(import.meta.dirname, "attached_assets"),
+7:19:58 PM:          ╵                              ~~~~~~~~~~~
+7:19:58 PM:   You need to set the output format to "esm" for "import.meta" to work correctly.
+7:19:58 PM: ▲ [WARNING] "import.meta" is not available with the "cjs" output format and will be empty [empty-import-meta]
+7:19:58 PM:     vite.config.ts:29:21:
+7:19:58 PM:       29 │   root: path.resolve(import.meta.dirname, "client"),
+7:19:58 PM:          ╵                      ~~~~~~~~~~~
+7:19:58 PM:   You need to set the output format to "esm" for "import.meta" to work correctly.
+7:19:58 PM: ▲ [WARNING] "import.meta" is not available with the "cjs" output format and will be empty [empty-import-meta]
+7:19:58 PM:     vite.config.ts:31:25:
+7:19:58 PM:       31 │     outDir: path.resolve(import.meta.dirname, "dist/public"),
+7:19:58 PM:          ╵                          ~~~~~~~~~~~
+7:19:58 PM:   You need to set the output format to "esm" for "import.meta" to work correctly.
+7:19:58 PM: 6 of 8 warnings and all 4 errors shown (disable the message limit with --log-limit=0)
+7:19:59 PM: ​
+7:19:59 PM: Dependencies installation error                               
+7:19:59 PM: ────────────────────────────────────────────────────────────────
+7:19:59 PM: ​
+7:19:59 PM:   Error message
+7:19:59 PM:   A Netlify Function failed to require one of its dependencies.
+7:19:59 PM:   Please make sure it is present in the site's top-level "package.json".
+​
+7:19:59 PM:   Build failed with 4 errors:
+7:19:59 PM:   node_modules/@babel/core/lib/config/files/module-types.js:171:36: ERROR: Could not resolve "@babel/preset-typescript/package.json"
+7:19:59 PM:   node_modules/lightningcss/node/index.js:17:27: ERROR: Could not resolve "../pkg"
+7:19:59 PM:   vite.config.ts:13:10: ERROR: Top-level await is currently not supported with the "cjs" output format
+7:19:59 PM:   vite.config.ts:16:10: ERROR: Top-level await is currently not supported with the "cjs" output format
+7:19:59 PM: ​
+7:19:59 PM:   Resolved config
+7:19:59 PM:   build:
+7:19:59 PM:     command: vite build
+7:19:59 PM:     commandOrigin: config
+7:19:59 PM:     publish: /opt/build/repo/dist/public
+7:19:59 PM:     publishOrigin: config
+7:19:59 PM:   functionsDirectory: /opt/build/repo/netlify/functions
+7:19:59 PM:   headers:
+7:19:59 PM:     - for: /*
+      values:
+        Access-Control-Allow-Origin: "*"
+  headersOrigin: config
+  redirects:
+    - from: /api/*
+      status: 200
+      to: /.netlify/functions/api/:splat
+  redirectsOrigin: config
+7:19:59 PM: Build failed due to a user error: Build script returned non-zero exit code: 2
+7:19:59 PM: Failing build: Failed to build site
+7:19:59 PM: Finished processing build request in 33.059s
